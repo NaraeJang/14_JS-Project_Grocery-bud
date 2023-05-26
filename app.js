@@ -42,7 +42,11 @@ function addItem(e) {
         <i class="fas fa-trash"></i>
       </button>
     </div>`;
+    const deleteBtn = element.querySelector(".delete-btn");
+    const editBtn = element.querySelector(".edit-btn");
 
+    deleteBtn.addEventListener("click", deleteItem);
+    editBtn.addEventListener("click", editItem);
     // append child
     list.appendChild(element);
     // display alert
@@ -51,6 +55,7 @@ function addItem(e) {
     container.classList.add("show-container");
     // add to local storage
     addToLocalStorage(id, value);
+
     // set back to default
     setBackToDefault();
   } else if (value && editFlag) {
@@ -86,6 +91,15 @@ function clearItems() {
   displayAlert("empty list", "danger");
   localStorage.removeItem("list");
   setBackToDefault();
+}
+
+// delete function
+function deleteItem() {
+  console.log("item deleted");
+}
+// edit function
+function editItem() {
+  console.log("item edited");
 }
 // set back to default
 function setBackToDefault() {
